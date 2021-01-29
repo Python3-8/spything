@@ -1,4 +1,5 @@
 from sys import getsizeof
+from pyautogui import size
 import numpy as np
 import pickle
 import socket
@@ -43,7 +44,8 @@ def receive_arr():
     frame_data = data[:msg_size]
     data = data[msg_size:]
     frame = pickle.loads(frame_data)
-    return frame
+    screen_w, screen_h = size()
+    return cv2.resize(frame, (int(screen_w * 0.75), int(screen_h * 0.75)), interpolation=cv2.INTER_AREA)
 
 
 def accept_connection():
