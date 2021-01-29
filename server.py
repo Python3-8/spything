@@ -7,7 +7,7 @@ import cv2
 import threading
 
 sock = socket.socket()
-sock.bind(('0.0.0.0', 8888))
+sock.bind(('', 8888))
 sock.listen(1)
 conns = []
 connected = False
@@ -37,9 +37,11 @@ def receive_arr():
 	msg_size = struct.unpack('L', packed_msg_size)[0]
 	while len(data) < msg_size:
 		data += conn.recv(4096)
+	conn.send(b'RECVD')
 	frame_data = data[:msg_size]
 	data = data[msg_size:]
 	frame = pickle.loads(frame_data)
+	print(frame)
 	return frame
 
 
