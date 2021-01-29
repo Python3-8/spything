@@ -16,6 +16,7 @@ def send_data():
         if connected:
             pickled = pickle.dumps(frame)
             sock.sendall(struct.pack('L', len(pickled)) + pickled)
+            sock.recv(1024)
 
 
 def connect():
@@ -27,7 +28,7 @@ def connect():
             print('not connected')
             try:
                 print('trying to connect')
-                sock.connect(('192.168.1.86', 8888))
+                sock.connect(('192.168.1.201', 8888))
                 print('connected')
                 connected = True
             except Exception as err:
