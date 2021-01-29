@@ -28,7 +28,7 @@ def connect():
             print('not connected')
             try:
                 print('trying to connect')
-                sock.connect(('192.168.1.201', 8888))
+                sock.connect(('192.168.1.128', 8888))
                 print('connected')
                 connected = True
             except Exception as err:
