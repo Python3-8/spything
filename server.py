@@ -23,6 +23,8 @@ def recv_data():
 
 
 def show_data(data):
+	if cv2.waitKey(10) == ord('q'):
+		quit()
 	cv2.imshow('SpyThing', data)
 
 
@@ -41,7 +43,6 @@ def receive_arr():
 	frame_data = data[:msg_size]
 	data = data[msg_size:]
 	frame = pickle.loads(frame_data)
-	print(frame)
 	return frame
 
 
