@@ -31,8 +31,8 @@ def connect():
 				sock.connect((argv[1], 8888))
 				print('connected')
 				connected = True
-			except:
-				print('host is not online, trying again...')
+			except Exception as err:
+				print(err, 'errored out, retrying')
 
 
 if __name__ == '__main__':
