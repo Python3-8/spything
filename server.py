@@ -24,7 +24,7 @@ def recv_data():
 
 
 def show_data(data):
-    if cv2.waitKey(10) == ord('q'):
+    if cv2.waitKey(0) & 0xFF == ord('q'):
         quit()
     cv2.imshow('SpyThing', data)
 
