@@ -34,6 +34,7 @@ def connect():
             except Exception as err:
                 print(str(err))
                 print('errored out')
+                quit()
 
 
 if __name__ == '__main__':
