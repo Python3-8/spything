@@ -1,8 +1,11 @@
 from sys import getsizeof
 from pyautogui import size
 import numpy as np
+import time
 import pickle
 import socket
+import os
+import os.path
 import struct
 import cv2
 import threading
@@ -20,12 +23,15 @@ def recv_data():
 			data = receive_arr()
 			show_data(data)
 		else:
-			print('no data to show')
+			continue
 
 
 def show_data(data):
-	if cv2.waitKey(10) == ord('q'):
+	key = cv2.waitKey(10)
+	if key == ord('q'):
 		quit()
+	elif key == ord('s'):
+		cv2.imwrite(os.path.join(os.getcwd(), str(time.time()) + '.png'), data)
 	cv2.imshow('SpyThing', data)
 
 
