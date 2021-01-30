@@ -26,16 +26,10 @@ def connect():
             break
         else:
             print('not connected')
-            try:
-                print('trying to connect')
-                sock.connect(('192.168.1.128', 8888))
-                print('connected')
-                connected = True
-            except Exception as err:
-                print(str(err))
-                print('errored out')
-                quit()
-
+            print('trying to connect')
+            sock.connect(('192.168.1.128', 8888))
+            print('connected')
+            connected = True
 
 if __name__ == '__main__':
     threads = [threading.Thread(target=connect),
