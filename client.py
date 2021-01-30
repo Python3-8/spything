@@ -1,4 +1,4 @@
-from sys import getsizeof
+from sys import getsizeof, argv
 import threading
 import pickle
 import cv2
@@ -28,7 +28,7 @@ def connect():
 			try:
 				print('not connected')
 				print('trying to connect')
-				sock.connect(('192.168.1.128', 8888))
+				sock.connect((argv[1], 8888))
 				print('connected')
 				connected = True
 			except:
