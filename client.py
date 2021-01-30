@@ -25,11 +25,15 @@ def connect():
         if connected:
             break
         else:
-            print('not connected')
-            print('trying to connect')
-            sock.connect(('192.168.1.128', 8888))
-            print('connected')
-            connected = True
+            try:
+                print('not connected')
+                print('trying to connect')
+                sock.connect(('192.168.1.128', 8888))
+                print('connected')
+                connected = True
+            except:
+                print('host is not online, trying again...')
+
 
 if __name__ == '__main__':
     threads = [threading.Thread(target=connect),
