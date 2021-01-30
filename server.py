@@ -45,7 +45,7 @@ def receive_arr():
 	data = data[msg_size:]
 	frame = pickle.loads(frame_data)
 	screen_w, screen_h = size()
-	return cv2.resize(frame, (int(screen_w * 0.75), int(screen_h * 0.75)), interpolation=cv2.INTER_AREA)
+	return cv2.resize(frame, (int(screen_w * 0.85), int(screen_h * 0.85)), interpolation=cv2.INTER_AREA)
 
 
 def accept_connection():
